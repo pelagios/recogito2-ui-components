@@ -18,7 +18,8 @@ export default class App extends Component {
   state = {
     document: 'oflmsfz9augu6l',
     annotations: [],
-    editsPerUser: []
+    editsPerUser: [], 
+    activityPerUser: []
   }
 
   componentDidMount() {
@@ -27,9 +28,25 @@ export default class App extends Component {
     });
 
     axios.get(`/api/document/${this.state.document}/contributions`).then(response => {
-      console.log(response.data);
       const editsPerUser = response.data.by_user.map(t => [ t.username, t.value ]);
-      this.setState({ editsPerUser });
+
+      const activeUsers = response.data.contribution_history.reduce((allUsers, tuple) => {
+        const users = tuple[2].map(t => t.username);
+        const union = new Set([...allUsers, ...users ]);
+        return Array.from(union);
+      }, []);
+      
+      const activityPerUser = activeUsers.map(user => {
+        const timeline = response.data.contribution_history.map(tuple => {
+          const date = tuple[0];
+          const contributions = tuple[2].filter(t => t.username === user);
+          return contributions.length === 1 ? [ date, contributions[0].value ] : [ date, 0 ]; 
+        });
+
+        return { name: user, data: timeline };
+      });
+
+      this.setState({ editsPerUser, activityPerUser });
     });
   }
 
@@ -89,10 +106,7 @@ export default class App extends Component {
         <div className="panel">
           <h2>Activity over time</h2>
           <div className="inner">
-            <ColumnChart stacked data={[
-              { name: 'foo', data: [["Sun", 32, 15], ["Mon", 46], ["Tue", 28]] },
-              { name: 'bar', data: [["Sun", 1], ["Mon", 16], ["Tue", 18]] }
-            ]} />
+            <ColumnChart stacked data={this.state.activityPerUser} />
           </div>
         </div>
       </div>
