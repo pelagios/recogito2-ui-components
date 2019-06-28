@@ -1,0 +1,39 @@
+$cell-height:90px;
+
+.panel.w2  { width:16.6%; }
+.panel.w3  { width:25%; }
+.panel.w5  { width:41.6%; }
+.panel.w6  { width:50%; }
+.panel.w7  { width:58.3%; }
+.panel.w12 { width:100%; }
+
+.panel.h2 { height:($cell-height * 2); }
+.panel.h3 { height:($cell-height * 3); }
+.panel.h4 { height:($cell-height * 4); }
+
+.inner {
+  position:relative;
+}
+
+.inner.summary-stats {
+  min-height:170px;
+  padding:20px 30px;
+
+  td {
+    padding:2px;
+    font-size:18px;
+    line-height:24px;
+    vertical-align:text-top;
+  }
+
+  td:first-child {
+    text-align:right;
+    font-size:26px;
+  }
+}
+
+#annotations-by-category {
+  position:absolute;
+  top:20px;
+  right:30px;
+}

@@ -1,2 +1,15 @@
-# recogito2-ui-components
-Another attempt a finding a sane repo structure for breaking out UI elements into React components
+# Stats widgets
+
+First, run `npm install`
+
+Dev mode
+
+```
+npm start
+```
+
+Build minified bundle 
+
+```
+npm run build
+```
