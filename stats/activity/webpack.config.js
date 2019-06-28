@@ -5,8 +5,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname , 'dist'),
-    filename: 'widget.js',
-    library: 'Widget',
+    filename: 'activity_stats.js',
+    library: 'ActivityStats',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -17,6 +17,11 @@ module.exports = {
   },
   performance: {
     hints: false
+  },
+  resolve: {
+    alias: {
+      common: path.resolve(__dirname, '../common/src/')
+    }
   },
   module: {
     rules: [

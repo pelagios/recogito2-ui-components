@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BarChart, ColumnChart, PieChart } from 'react-chartkick';
 import 'chart.js';
-import AnnotationStats from './AnnotationStats';
+import AnnotationStats from 'common/AnnotationStats';
 
 import './App.scss';
 
