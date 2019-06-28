@@ -73,7 +73,7 @@ export default class App extends Component {
               height="170px"
               legend={false} 
               colors={COLORS}
-              data={[[ 'Places', 44 ], [ 'People', 23], [ 'Events', 12 ], [ 'Uncategorized', 28 ]]} />
+              data={stats.bodiesByType()} />
           </div>
         </div>
 

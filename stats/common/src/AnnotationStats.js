@@ -4,10 +4,14 @@ class AnnotationHelper {
     this._a = annotation;
   }
 
-  getBodiesOfType(t) {
-    return this._a.bodies.filter(b => {
-      return b.type === t;
-    })
+  getBodiesOfType(typeOrList) {
+    return Array.isArray(typeOrList) ? 
+      this._a.bodies.filter(b => typeOrList.includes(b.type)) :
+      this._a.bodies.filter(b => b.type === typeOrList);
+  }
+
+  getCategoryBodies() {
+    return this.getBodiesOfType(['PLACE', 'PERSON', 'EVENT']);
   }
 
   getTags() {
@@ -52,7 +56,30 @@ export default class AnnotationStats {
 
   bodiesByType() {
     if (!this._bodiesByType) {
-      // TODO implement
+      const counts = {
+        PLACE:  0,
+        PERSON: 0,
+        EVENT:  0,
+        NONE:   0
+      }
+
+      this._annotations.forEach(a => {
+        const categoryBodies = new AnnotationHelper(a).getCategoryBodies();
+        if (categoryBodies.length > 0) {
+          categoryBodies.forEach(b => {
+            counts[b.type]++;
+          });
+        } else {
+          counts.NONE++;
+        }
+      });
+
+      this._bodiesByType = [
+        [ 'Places', counts.PLACE ],
+        [ 'People', counts.PERSON ],
+        [ 'Events', counts.EVENT ],
+        [ 'Uncategorized', counts.NONE ]
+      ];
     }
 
     return this._bodiesByType;
