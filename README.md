@@ -17,7 +17,7 @@ Recogito's document views.
 ## Usage
 
 Widgets are individual React/Webpack projects. To work  on the 
-code. Change into the project folder (e.g. `stats/activity`).
+code, change into the project folder (e.g. `stats/activity`).
 
 - `npm install` to install dependencies
 - `npm start` to launch dev mode (server runs on port 3000)
