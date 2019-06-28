@@ -27,6 +27,7 @@ export default class App extends Component {
     });
 
     axios.get(`/api/document/${this.state.document}/contributions`).then(response => {
+      console.log(response.data);
       const editsPerUser = response.data.by_user.map(t => [ t.username, t.value ]);
       this.setState({ editsPerUser });
     });

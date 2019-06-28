@@ -50,6 +50,14 @@ export default class AnnotationStats {
     return this._totalComments;
   }
 
+  bodiesByType() {
+    if (!this._bodiesByType) {
+      // TODO implement
+    }
+
+    return this._bodiesByType;
+  }
+
   totalRelations() {
     if (!this._totalRelations) {
       this._totalRelations = this._annotations.reduce((total, annotation) => {
@@ -69,14 +77,6 @@ export default class AnnotationStats {
     }
 
     return this._contributors;
-  }
-
-  editsPerContributor() {
-
-  }
-
-  activityOverTime() {
-
   }
 
 }
