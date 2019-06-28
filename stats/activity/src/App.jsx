@@ -16,7 +16,7 @@ const COLORS = [
 export default class App extends Component {
   
   state = {
-    document: 'oflmsfz9augu6l',
+    document: this.props.config.document || 'asckvtl43e9jca',
     annotations: [],
     editsPerUser: [], 
     activityPerUser: []
