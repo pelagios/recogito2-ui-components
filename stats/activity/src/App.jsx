@@ -17,14 +17,19 @@ export default class App extends Component {
   
   state = {
     document: 'oflmsfz9augu6l',
-    annotations: []
+    annotations: [],
+    editsPerUser: []
   }
 
   componentDidMount() {
     axios.get(`/api/document/${this.state.document}/annotations`).then(response => {
-      console.log(response.data);
       this.setState({ annotations: response.data });
-    })
+    });
+
+    axios.get(`/api/document/${this.state.document}/contributions`).then(response => {
+      const editsPerUser = response.data.by_user.map(t => [ t.username, t.value ]);
+      this.setState({ editsPerUser });
+    });
   }
 
   render() {
@@ -76,7 +81,7 @@ export default class App extends Component {
           <div className="inner">
             <BarChart
               xtitle="Total edits" 
-              data={[["rainer", 5], ["elton", 27]]} />
+              data={this.state.editsPerUser} />
           </div>
         </div>
 
