@@ -1,5 +1,6 @@
 import React from 'react';
 import { PieChart } from 'react-chartkick';
+import NumberFormat from 'react-number-format';
 
 import './SummaryStats.scss';
 
@@ -9,6 +10,18 @@ const PIE_COLORS = [
   '#bc51bc',
   '#afafaf'
 ];
+
+// Shorthand
+const Number = props => {
+
+  return (
+    <NumberFormat
+      thousandSeparator
+      displayType="text"
+      value={props.value} />
+  )
+
+}
 
 const SummaryStats = props => {
 
@@ -21,27 +34,27 @@ const SummaryStats = props => {
           <table>
             <tbody>
               <tr>
-                <td>{props.annotations}</td>
+                <td><Number value={props.annotations} /></td>
                 <td>Annotations</td>
               </tr>
 
               <tr>
-                <td>{props.tags}</td>
+                <td><Number value={props.tags} /></td>
                 <td>Tags</td>
               </tr>
 
               <tr>
-                <td>{props.comments}</td>
+                <td><Number value={props.comments} /></td>
                 <td>Comments</td>
               </tr>
 
               <tr>
-                <td>{props.relations}</td>
+                <td><Number value={props.relations} /></td>
                 <td>Relations</td>
               </tr>
 
               <tr>
-                <td>{props.contributors}</td>
+                <td><Number value={props.contributors} /></td>
                 <td>Contributors</td>
               </tr>
             </tbody>

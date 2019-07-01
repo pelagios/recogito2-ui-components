@@ -1,3 +1,20 @@
+@import "../../../common/styles/colors";
+
 .inner.contributors-chart {
   height:190px;
+
+  td {
+    padding:0 4px;
+  }
+
+  .meter {
+    height:10px;
+    width:400px;
+    margin-top:2px;
+  }
+
+  .bar {
+    background-color:$ocean;
+  }
+
 }

@@ -1,17 +1,39 @@
 import React from 'react';
-import { BarChart } from 'react-chartkick';
+import NumberFormat from 'react-number-format';
 
 import './ContributorsChart.scss';
 
 const ContributorsChart = props => {
+  const maxScore = Math.max(...props.editsPerUser.map(arr => arr[1]));
+
+  const rows = props.editsPerUser.map(arr =>
+    <tr key={arr[0]}>
+      <td>{arr[0]}</td>
+      <td>
+        <div className="meter">
+          <div 
+            className="bar rounded" 
+            style={{ width: `${100 * arr[1] / maxScore}%` }}></div>
+        </div>
+      </td>
+      <td>
+        <NumberFormat
+          thousandSeparator
+          displayType="text"
+          value={arr[1]} /> Edits
+      </td>
+    </tr>
+  );
 
   return (
     <div className="panel w8">
       <h2>Contributors</h2>
       <div className="inner contributors-chart">
-        <BarChart
-          height={190} 
-          data={props.editsPerUser} />
+        <table>
+          <tbody>
+            { rows }
+          </tbody>
+        </table>
       </div>
 
       { props.loading && <div className="loading-mask" /> }

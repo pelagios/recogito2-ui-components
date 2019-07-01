@@ -1,5 +1,3 @@
-$cell-height:90px;
-
 .panel {
   display:inline-block;
   max-width:100% !important;
@@ -15,10 +13,6 @@ $cell-height:90px;
 .panel.w7  { width:58.3%; }
 .panel.w8  { width:65%; }
 .panel.w12 { width:98.2%; }
-
-.panel.h2 { height:($cell-height * 2); }
-.panel.h3 { height:($cell-height * 3); }
-.panel.h4 { height:($cell-height * 4); }
 
 .content {
   max-width:1400px;
