@@ -21,7 +21,8 @@ module.exports = {
   resolve: {
     alias: {
       common: path.resolve(__dirname, '../common/src/')
-    }
+    },
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [

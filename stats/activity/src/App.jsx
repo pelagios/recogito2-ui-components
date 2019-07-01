@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BarChart, ColumnChart, PieChart } from 'react-chartkick';
-import 'chart.js';
+import { BarChart, ColumnChart } from 'react-chartkick';
 import AnnotationStats from 'common/AnnotationStats';
+import SummaryStats from './summary/SummaryStats';
 
+import 'chart.js';
 import './App.scss';
-
-const COLORS = [
-  '#57c17b',
-  '#6f87d8',
-  '#bc51bc',
-  '#afafaf'
-];
 
 export default class App extends Component {
   
@@ -55,44 +49,13 @@ export default class App extends Component {
 
     return (
       <div>
-        <div className="panel">
-          <h2>Summary</h2>
-          <div className="inner summary-stats">
-            <div>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>{stats.total()}</td><td>Annotations</td>
-                  </tr>
-
-                  <tr>
-                    <td>{stats.totalTags()}</td><td>Tags</td>
-                  </tr>
-
-                  <tr>
-                    <td>{stats.totalComments()}</td><td>Comments</td>
-                  </tr>
-
-                  <tr>
-                    <td>{stats.totalRelations()}</td><td>Relations</td>
-                  </tr>
-
-                  <tr>
-                    <td>{stats.contributors().length}</td><td>Contributors</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-  
-            <PieChart 
-              id="annotations-by-category"
-              width="170px" 
-              height="170px"
-              legend={false} 
-              colors={COLORS}
-              data={stats.bodiesByType()} />
-          </div>
-        </div>
+        <SummaryStats
+          annotations={stats.total()}
+          tags={stats.totalTags()}
+          comments={stats.totalComments()}
+          relations={stats.totalRelations()}
+          contributors={stats.contributors().length}
+          bodiesByType={stats.bodiesByType()} />
 
         <div className="panel">
           <h2>Contributors</h2>
