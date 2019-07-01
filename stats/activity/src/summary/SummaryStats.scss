@@ -1,22 +1,28 @@
 .inner.summary-stats {
-  min-height:170px;
-  padding:20px 30px;
+  min-height:180px;
+  padding:20px;
 
   td {
     padding:2px;
-    font-size:18px;
-    line-height:24px;
-    vertical-align:text-top;
+    line-height:19px;
+    font-size:14px;
   }
 
   td:first-child {
+    font-size:19px;
     text-align:right;
-    font-size:26px;
   }
+
+  td:last-child {
+    position:relative;
+    top:2px;
+  }
+
+  #annotations-by-category {
+    position:absolute;
+    top:15px;
+    right:30px;
+  }
+
 }
 
-#annotations-by-category {
-  position:absolute;
-  top:20px;
-  right:30px;
-}

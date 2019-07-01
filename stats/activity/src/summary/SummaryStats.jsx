@@ -13,7 +13,7 @@ const PIE_COLORS = [
 const SummaryStats = props => {
 
   return (
-    <div className="panel w5">
+    <div className="panel w4">
       <h2>Summary</h2>
 
       <div className="inner summary-stats">
@@ -50,11 +50,13 @@ const SummaryStats = props => {
 
         <PieChart 
           id="annotations-by-category"
-          width="170px" 
-          height="170px"
+          width="140px" 
+          height="140px"
           legend={false} 
           colors={PIE_COLORS}
           data={props.bodiesByType} />
+
+        { props.loading && <div className="loading-mask" /> }
       </div>
     </div>
   )

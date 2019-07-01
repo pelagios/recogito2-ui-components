@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BarChart, ColumnChart } from 'react-chartkick';
 import AnnotationStats from 'common/AnnotationStats';
 import SummaryStats from './summary/SummaryStats';
+import ContributorsChart from './contributors/ContributorsChart';
+import Timeline from './timeline/Timeline';
 
 import 'chart.js';
 import './App.scss';
@@ -48,7 +49,7 @@ export default class App extends Component {
     const stats = new AnnotationStats(this.state.annotations);
 
     return (
-      <div>
+      <>
         <SummaryStats
           annotations={stats.total()}
           tags={stats.totalTags()}
@@ -57,22 +58,12 @@ export default class App extends Component {
           contributors={stats.contributors().length}
           bodiesByType={stats.bodiesByType()} />
 
-        <div className="panel">
-          <h2>Contributors</h2>
-          <div className="inner">
-            <BarChart
-              xtitle="Total edits" 
-              data={this.state.editsPerUser} />
-          </div>
-        </div>
+        <ContributorsChart
+          editsPerUser={this.state.editsPerUser} />
 
-        <div className="panel">
-          <h2>Activity over time</h2>
-          <div className="inner">
-            <ColumnChart stacked data={this.state.activityPerUser} />
-          </div>
-        </div>
-      </div>
+        <Timeline
+          activityPerUser={this.state.activityPerUser} />
+      </>
     )
   }
 
