@@ -1,0 +1,45 @@
+@import "../../../common/styles/colors";
+
+.inner.timeline {
+  position:relative;
+  width:100%;
+  height:100%;
+  padding:0 0 14px 0;
+
+  svg {
+    font-family:PTSansNarrow;
+    font-size:13px;
+    shape-rendering:crispEdges;
+  }
+
+  .ct-grids line {
+    stroke:$almost-black;
+    stroke-width:0.5px;
+    stroke-dasharray:2 2;
+  }
+
+  .inner {
+    position:relative;
+  }
+
+  #activity-history-chart {
+    box-sizing:border-box;
+    width:100%;
+    height:100%;
+  }
+
+  .ct-series-a .ct-bar {
+    stroke:$ocean;
+    stroke-width:10.5px;
+  }
+
+  .ct-label {
+    white-space:nowrap;
+  }
+
+  .ct-label.ct-vertical.ct-start {
+    position:relative;
+    top:12px;
+  }
+
+}

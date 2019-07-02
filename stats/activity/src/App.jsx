@@ -14,7 +14,7 @@ export default class App extends Component {
     document: this.props.config.document || 'asckvtl43e9jca',
     annotations: [],
     editsPerUser: [], 
-    activityPerUser: []
+    editHistory: []
   }
 
   componentDidMount() {
@@ -24,24 +24,8 @@ export default class App extends Component {
 
     axios.get(`/api/document/${this.state.document}/contributions`).then(response => {
       const editsPerUser = response.data.by_user.map(t => [ t.username, t.value ]);
-
-      const activeUsers = response.data.contribution_history.reduce((allUsers, tuple) => {
-        const users = tuple[2].map(t => t.username);
-        const union = new Set([...allUsers, ...users ]);
-        return Array.from(union);
-      }, []);
-      
-      const activityPerUser = activeUsers.map(user => {
-        const timeline = response.data.contribution_history.map(tuple => {
-          const date = tuple[0];
-          const contributions = tuple[2].filter(t => t.username === user);
-          return contributions.length === 1 ? [ date, contributions[0].value ] : [ date, 0 ]; 
-        });
-
-        return { name: user, data: timeline };
-      });
-
-      this.setState({ editsPerUser, activityPerUser });
+      const editHistory = response.data.contribution_history;
+      this.setState({ editsPerUser, editHistory });
     });
   }
 
@@ -62,7 +46,7 @@ export default class App extends Component {
           editsPerUser={this.state.editsPerUser} />
 
         <Timeline
-          activityPerUser={this.state.activityPerUser} />
+          history={this.state.editHistory} />
       </>
     )
   }
