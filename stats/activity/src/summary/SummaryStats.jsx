@@ -41,17 +41,18 @@ export default class SummaryStats extends Component {
   }
 
   componentWillReceiveProps(next) {
-    if (this.props.annotations != next.annotations)
-      this.recompute();
+    if (this.props.annotations != next.annotations) {
+      this.recompute(next.annotations);
+    }
   }
 
-  recompute() {
+  recompute(annotations) {
     new Promise(resolve => {
-      const tags = countTags(this.props.annotations);
-      const comments = countComments(this.props.annotations);
-      const relations = countRelations(this.props.annotations);
-      const contributors = getContributors(this.props.annotations).length;
-      const bodiesByType = getBodiesByType(this.props.annotations);
+      const tags = countTags(annotations);
+      const comments = countComments(annotations);
+      const relations = countRelations(annotations);
+      const contributors = getContributors(annotations).length;
+      const bodiesByType = getBodiesByType(annotations);
       resolve({ tags, comments, relations, contributors, bodiesByType });
     }).then(stats => this.setState({ ...stats, computing: false }));
   }
@@ -101,7 +102,7 @@ export default class SummaryStats extends Component {
             colors={PIE_COLORS}
             data={this.state.bodiesByType} />
   
-          { this.state.computing && <div className="loading-mask" /> }
+          { this.state.computing && <div className="loading-mask"><div className="spinner" /></div> }
         </div>
       </div>
     )
