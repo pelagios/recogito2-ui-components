@@ -4,46 +4,21 @@
   position:relative;
   width:100%;
   height:100%;
-  padding:0 0 14px 0;
+  padding:15px 0 10px 0;
+
+  .recharts-wrapper {
+    margin:0 auto;
+  }
 
   svg {
     font-family:PTSansNarrow;
     font-size:13px;
     shape-rendering:crispEdges;
-  }
 
-  .ct-grids line {
-    stroke:$almost-black;
-    stroke-width:0.5px;
-    stroke-dasharray:2 2;
-  }
+    .recharts-layer {
+      shape-rendering:geometricPrecision;
+    }
 
-  .ct-series line.ct-bar {
-    stroke-width:6px;
-  }
-
-  .inner {
-    position:relative;
-  }
-
-  #activity-history-chart {
-    box-sizing:border-box;
-    width:100%;
-    height:100%;
-  }
-
-  .ct-series-a .ct-bar {
-    stroke:$ocean;
-    stroke-width:10.5px;
-  }
-
-  .ct-label {
-    white-space:nowrap;
-  }
-
-  .ct-label.ct-vertical.ct-start {
-    position:relative;
-    top:12px;
   }
 
 }

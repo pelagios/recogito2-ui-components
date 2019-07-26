@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartistGraph from 'react-chartist';
+import { AreaChart, Area, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 import './Timeline.scss';
 
@@ -16,15 +16,15 @@ const formatDate = (date) => {
 
 const Timeline = props => {
 
-  const labels = props.history.map(t => {
+  /* const labels = props.history.map(t => {
     return formatDate(new Date(t[0]));
+  }); */
+
+  const data = props.history.map(t => {
+    return { date: formatDate(new Date(t[0])), value: t[1] };
   });
 
-  const series = props.history.map(t => {
-    return t[1];
-  });
-
-  const data = { labels: labels, series: [ series ]};
+  // const data = { labels: labels, series: [ series ]};
 
   const options = { 
     fullWidth: true,
@@ -45,7 +45,12 @@ const Timeline = props => {
     <div className="panel w12">
       <h2>Activity over time</h2>
       <div className="inner timeline">
-        <ChartistGraph data={data} options={options} type="Bar" />
+        <AreaChart data={data} width={940} height={180}>
+          <CartesianGrid strokeDasharray="3 3"/>
+          <XAxis dataKey="date"/>
+          <YAxis/>
+          <Area type="monotone" dataKey="value" />
+        </AreaChart>
       </div>
     </div>
   )
