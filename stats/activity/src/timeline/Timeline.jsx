@@ -16,41 +16,20 @@ const formatDate = (date) => {
 
 const Timeline = props => {
 
-  /* const labels = props.history.map(t => {
-    return formatDate(new Date(t[0]));
-  }); */
-
   const data = props.history.map(t => {
-    return { date: formatDate(new Date(t[0])), value: t[1] };
+    return { date: formatDate(new Date(t[0])), Edits: t[1] };
   });
-
-  // const data = { labels: labels, series: [ series ]};
-
-  const options = { 
-    fullWidth: true,
-    chartPadding: {
-      top:26
-    },
-    showArea: true,
-    axisY: {
-      onlyInteger: true
-    },
-    axisX: { 
-      showGrid:false // ,
-      // labelInterpolationFnc: (val, idx) => idx % 4  === 0 ? val : null
-    }
-  };
 
   return (
     <div className="panel w12">
       <h2>Activity over time</h2>
       <div className="inner timeline">
-        <AreaChart data={data} width={940} height={180}>
+        <AreaChart data={data} width={920} height={180}>
           <CartesianGrid strokeDasharray="3 3"/>
           <XAxis dataKey="date"/>
           <YAxis/>
           <Tooltip/>
-          <Area type="monotone" dataKey="value" stroke="#4483c4" fill="#4483c4" />
+          <Area type="monotone" dataKey="Edits" stroke="#4483c4" fill="#4483c4" />
         </AreaChart>
       </div>
     </div>

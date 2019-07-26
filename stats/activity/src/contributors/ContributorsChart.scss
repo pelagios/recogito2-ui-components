@@ -3,8 +3,13 @@
 .inner.contributors-chart {
   height:190px;
 
+  table {
+    border-collapse:collapse;
+    margin:0 auto;
+  }
+
   td {
-    padding:0 4px;
+    padding:0 8px;
   }
 
   td:first-child, td:last-child {
