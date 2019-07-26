@@ -18,6 +18,10 @@
     stroke-dasharray:2 2;
   }
 
+  .ct-series line.ct-bar {
+    stroke-width:6px;
+  }
+
   .inner {
     position:relative;
   }

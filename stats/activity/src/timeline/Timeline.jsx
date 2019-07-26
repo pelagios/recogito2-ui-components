@@ -31,9 +31,13 @@ const Timeline = props => {
     chartPadding: {
       top:26
     },
+    showArea: true,
+    axisY: {
+      onlyInteger: true
+    },
     axisX: { 
-      showGrid:false,
-      labelInterpolationFnc: (val, idx) => idx % 4  === 0 ? val : null
+      showGrid:false // ,
+      // labelInterpolationFnc: (val, idx) => idx % 4  === 0 ? val : null
     }
   };
 

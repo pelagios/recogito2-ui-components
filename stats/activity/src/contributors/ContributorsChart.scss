@@ -7,6 +7,10 @@
     padding:0 4px;
   }
 
+  td:first-child, td:last-child {
+    text-align:right;
+  }
+
   .meter {
     height:10px;
     width:400px;
