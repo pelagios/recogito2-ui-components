@@ -1,7 +1,7 @@
 @import "../../../common/styles/colors";
 
 .inner.contributors-chart {
-  height:190px;
+  min-height:190px;
 
   table {
     border-collapse:collapse;
