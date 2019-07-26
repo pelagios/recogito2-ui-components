@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { AreaChart, Area, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
 
 import './Timeline.scss';
 
@@ -49,7 +49,8 @@ const Timeline = props => {
           <CartesianGrid strokeDasharray="3 3"/>
           <XAxis dataKey="date"/>
           <YAxis/>
-          <Area type="monotone" dataKey="value" />
+          <Tooltip/>
+          <Area type="monotone" dataKey="value" stroke="#4483c4" fill="#4483c4" />
         </AreaChart>
       </div>
     </div>
