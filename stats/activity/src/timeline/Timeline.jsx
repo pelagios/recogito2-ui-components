@@ -41,7 +41,12 @@ const Timeline = props => {
           <XAxis dataKey="date"/>
           <YAxis/>
           <Tooltip/>
-          <Area type="monotone" dataKey="Edits" stroke="#4483c4" fill="#4483c4" />
+          <Area 
+            type="monotone" 
+            dataKey="Edits" 
+            stroke="#4483c4" 
+            fill="#4483c4" 
+            animationDuration={200} />
         </AreaChart>
       </div>
     </div>
