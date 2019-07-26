@@ -1,5 +1,24 @@
 @import "../../../common/styles/colors";
 
+.panel h2 .filter {
+  background-color:rgba($ocean, 0.8);
+  color:#fff;
+  border-radius:3px;
+  border:1px solid $ocean;
+  display:inline-block;
+  padding:0 6px;
+  font-size:16px;
+  line-height:21px;
+  margin:0 6px;
+}
+
+.panel h2 .filter::after {
+  content:'\f00d';
+  font-size:14px;
+  font-family:FontAwesome;
+  margin-left:4px;
+}
+
 .inner.timeline {
   position:relative;
   width:100%;

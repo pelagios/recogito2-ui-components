@@ -9,7 +9,7 @@ const ContributorsChart = props => {
 
   const rows = props.editsPerUser.map(arr =>
     <tr key={arr[0]}>
-      <td>{arr[0]}</td>
+      <td onClick={() => props.onSelect(arr[0])}>{arr[0]}</td>
       <td>
         <div className="meter">
           <div 

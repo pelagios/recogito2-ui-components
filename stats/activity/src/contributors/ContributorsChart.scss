@@ -17,13 +17,15 @@
   }
 
   .meter {
-    height:10px;
+    height:8px;
     width:400px;
     margin-top:2px;
+    overflow:visible;
   }
 
   .bar {
-    background-color:$ocean;
+    background-color:rgba($ocean, 0.6);
+    border:1px solid $ocean;
   }
 
 }

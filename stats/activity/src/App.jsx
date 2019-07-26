@@ -13,7 +13,8 @@ export default class App extends Component {
     document: this.props.config.document || 'oflmsfz9augu6l',
     annotations: [],
     editsPerUser: [], 
-    editHistory: []
+    editHistory: [],
+    selectedUser: null
   }
 
   componentDidMount() {
@@ -27,6 +28,10 @@ export default class App extends Component {
     });
   }
 
+  selectUser = username => {
+    this.setState({ selectedUser: username });
+  }
+
   render() {
     return (
       <>
@@ -34,10 +39,13 @@ export default class App extends Component {
           annotations={this.state.annotations} />
 
         <ContributorsChart
-          editsPerUser={this.state.editsPerUser} />
+          editsPerUser={this.state.editsPerUser} 
+          onSelect={this.selectUser} />
 
         <Timeline
-          history={this.state.editHistory} />
+          history={this.state.editHistory} 
+          forUser={this.state.selectedUser} 
+          clearFilter={() => this.selectUser() }/>
       </>
     )
   }
