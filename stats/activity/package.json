@@ -8,6 +8,17 @@
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-class-properties"
+      ]
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

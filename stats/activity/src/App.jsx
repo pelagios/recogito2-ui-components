@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import AnnotationStats from 'common/AnnotationStats';
 import SummaryStats from './summary/SummaryStats';
 import ContributorsChart from './contributors/ContributorsChart';
 import Timeline from './timeline/Timeline';
@@ -18,9 +17,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/document/${this.state.document}/annotations`).then(response => {
-      this.setState({ annotations: response.data });
-    });
+    axios.get(`/api/document/${this.state.document}/annotations`)
+      .then(response => this.setState({ annotations: response.data }));
 
     axios.get(`/api/document/${this.state.document}/contributions`).then(response => {
       const editsPerUser = response.data.by_user.map(t => [ t.username, t.value ]);
@@ -30,17 +28,10 @@ export default class App extends Component {
   }
 
   render() {
-    const stats = new AnnotationStats(this.state.annotations);
-
     return (
       <>
         <SummaryStats
-          annotations={stats.total()}
-          tags={stats.totalTags()}
-          comments={stats.totalComments()}
-          relations={stats.totalRelations()}
-          contributors={stats.contributors().length}
-          bodiesByType={stats.bodiesByType()} />
+          annotations={this.state.annotations} />
 
         <ContributorsChart
           editsPerUser={this.state.editsPerUser} />

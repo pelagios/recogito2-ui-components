@@ -15,6 +15,7 @@ const formatDate = (date) => {
 }
 
 const Timeline = props => {
+
   const labels = props.history.map(t => {
     return formatDate(new Date(t[0]));
   });
@@ -32,7 +33,7 @@ const Timeline = props => {
     },
     axisX: { 
       showGrid:false,
-      labelInterpolationFnc: (val, idx) => idx % 3  === 0 ? val : null
+      labelInterpolationFnc: (val, idx) => idx % 4  === 0 ? val : null
     }
   };
 
@@ -42,8 +43,6 @@ const Timeline = props => {
       <div className="inner timeline">
         <ChartistGraph data={data} options={options} type="Bar" />
       </div>
-
-      { props.loading && <div className="loading-mask" /> }
     </div>
   )
 

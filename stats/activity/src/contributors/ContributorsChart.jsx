@@ -4,6 +4,7 @@ import NumberFormat from 'react-number-format';
 import './ContributorsChart.scss';
 
 const ContributorsChart = props => {
+
   const maxScore = Math.max(...props.editsPerUser.map(arr => arr[1]));
 
   const rows = props.editsPerUser.map(arr =>
@@ -35,8 +36,6 @@ const ContributorsChart = props => {
           </tbody>
         </table>
       </div>
-
-      { props.loading && <div className="loading-mask" /> }
     </div>
   )
 
