@@ -1,4 +1,4 @@
-class AnnotationHelper {
+export class AnnotationHelper {
 
   constructor(annotation) {
     this._a = annotation;
