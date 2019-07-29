@@ -70,7 +70,7 @@ export default class FlaggedEntites extends Component {
               { this.state.data.map(t => 
                 <tr key={t.toponym}>
                   <td>{t.toponym}</td>
-                  <td>{t.count}</td>
+                  <td>{t.count} <span className="icon">{'\uf024'}</span></td>
                 </tr>
               )}
             </tbody>

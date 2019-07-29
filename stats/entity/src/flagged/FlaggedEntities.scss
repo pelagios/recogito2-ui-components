@@ -2,4 +2,12 @@
 
 .flagged-toponyms .inner {
   padding:0;
+
+  .icon {
+    font-size:14px;
+  }
+
+  th:last-child, td:last-child {
+    text-align:right;
+  }
 }
