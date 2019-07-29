@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const FlaggedEntites = props => {
+const FlaggedEntityRow = props => {
 
   return (
-    <div>
-      <div className="panel w12">
-        <h2>Flagged Toponyms</h2>
-        <div className="inner">
-
-        </div>
-      </div>
-    </div>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
   )
 
 }
 
-export default FlaggedEntites;
+export default class FlaggedEntites extends Component {
+
+  state = {
+    computing: true
+  }
+
+  render() {
+    return (
+      <div className="panel w7">
+        <h2>Flagged Toponyms</h2>
+        <div className="inner">
+          
+        </div>
+      </div>
+    )
+  }
+
+}

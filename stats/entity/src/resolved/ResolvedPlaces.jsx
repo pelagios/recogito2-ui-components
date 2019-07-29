@@ -79,7 +79,7 @@ const groupResolvedPlaces = bodies => {
   });
 }
 
-class ResolvedPlaces extends Component {
+export default class ResolvedPlaces extends Component {
 
   state = {
     computing: true,
@@ -119,5 +119,3 @@ class ResolvedPlaces extends Component {
   }
 
 }
-
-export default ResolvedPlaces;

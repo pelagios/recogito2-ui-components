@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import FlaggedEntities from './flagged/FlaggedEntites';
 import ResolvedPlaces from './resolved/ResolvedPlaces';
+import CompletionStats from './completion/CompletionStats';
 
 import './App.scss';
 
@@ -20,10 +21,13 @@ export default class App extends Component {
   render() {
     return (
       <>
-        {/* <FlaggedEntities
-          annotations={this.state.annotations} /> */}
-
         <ResolvedPlaces
+          annotations={this.state.annotations} />
+          
+        <FlaggedEntities
+          annotations={this.state.annotations} />
+
+        <CompletionStats
           annotations={this.state.annotations} />
       </>
     )
