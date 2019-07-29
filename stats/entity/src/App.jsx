@@ -21,13 +21,13 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <ResolvedPlaces
+        <CompletionStats
           annotations={this.state.annotations} />
-          
+
         <FlaggedEntities
           annotations={this.state.annotations} />
 
-        <CompletionStats
+        <ResolvedPlaces
           annotations={this.state.annotations} />
       </>
     )

@@ -52,10 +52,8 @@ export default class FlaggedEntites extends Component {
   }
 
   render() {
-    console.log(this.state.data);
-
     return (
-      <div className="panel w7 flagged-toponyms">
+      <div className="panel w5 flagged-toponyms">
         <h2>Flagged Toponyms</h2>
         <div className="inner">
           <table>
