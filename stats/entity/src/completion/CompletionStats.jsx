@@ -73,19 +73,20 @@ export default class CompletionStats extends Component {
                 <tr>
                   <td>{total}</td>
                   <td>Places tagged</td>
-                  <td></td>
                 </tr>
   
                 <tr>
                   <td>{VERIFIED}</td>
-                  <td>Verified</td>
-                  <td>{(100 * VERIFIED / total).toFixed(2)}%</td>
+                  <td>
+                    Verified ({total && (100 * VERIFIED / total).toFixed(2)}%)
+                  </td>
                 </tr>
   
                 <tr>
                   <td>{FLAGGED}</td>
-                  <td>Flagged</td>
-                  <td>{(100 * FLAGGED / total).toFixed(2)}%</td>
+                  <td>
+                    Flagged ({total && (100 * FLAGGED / total).toFixed(2)}%)
+                  </td>
                 </tr>  
               </tbody>
             </table>

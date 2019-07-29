@@ -6,8 +6,8 @@ const ResolvedPlaceRows = props => {
 
   return (
     <React.Fragment>
-      { props.occurrences.map(occurrence =>
-        <tr key={ occurrence.toponym }>
+      { props.occurrences.map((occurrence, idx) =>
+        <tr key={idx}>
           <td>
             <a href={props.uri} target="_blank">{ props.uri }</a>
           </td>
@@ -53,7 +53,7 @@ const groupResolvedPlaces = bodies => {
     if (withSameToponym)
       withSameToponym.count++;
     else 
-      prevOccurrences.push({ ...occurrence.toponym, count: 1 });
+      prevOccurrences.push({ toponym: occurrence.toponym, count: 1 });
 
   }
 
