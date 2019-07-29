@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PieChart } from 'react-chartkick';
 
 import 'chart.js';
+import './CompletionStats.scss';
 
 const PIE_COLORS = [
   '#57c17b',
@@ -63,7 +64,7 @@ export default class CompletionStats extends Component {
     const total = VERIFIED + FLAGGED + UNVERIFIED;
 
     return (
-      <div className="panel w7">
+      <div className="panel w7 completion-stats">
         <h2>Completion</h2>
         <div className="inner">
           <div>
@@ -91,7 +92,7 @@ export default class CompletionStats extends Component {
           </div>
 
           <PieChart 
-            id="verification-rate"
+            id="verification-chart"
             width="140px" 
             height="140px"
             legend={false} 

@@ -1,0 +1,26 @@
+.completion-stats {
+
+  .inner {
+    min-height:140px;
+    padding-right:200px
+  }
+
+  table {
+
+    td:first-child {
+      text-align:right;
+    }
+
+    td:last-child {
+      text-align:left;
+    }
+
+  }
+
+  #verification-chart {
+    position:absolute;
+    top:15px;
+    right:30px;
+  }
+
+}
