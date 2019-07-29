@@ -1,5 +1,4 @@
-import React from 'react';
-import { AnnotationHelper } from 'common/AnnotationStats';
+import React, { Component } from 'react';
 
 const ResolvedPlaceRows = props => {
 
@@ -76,13 +75,23 @@ const groupResolvedPlaces = bodies => {
   });
 }
 
-const ResolvedPlaces = props => {
+class ResolvedPlaces extends Component {
 
-  const resolvedPlaceBodies = getResolvedPlaces(props.annotations);
-  const grouped = groupResolvedPlaces(resolvedPlaceBodies);
+  state = {
+    computing: true,
+    data: []
+  }
 
-  return (
-    <div>
+  componentWillReceiveProps(next) {
+    if (next.annotations !== this.props.annotations) {
+      const resolvedPlaceBodies = getResolvedPlaces(next.annotations);
+      const data = groupResolvedPlaces(resolvedPlaceBodies);
+      this.setState({ data, computing: false })
+    }
+  }
+
+  render() {
+    return (
       <div className="panel w12">
         <h2>Resolved Places</h2>
         <div className="inner">
@@ -95,13 +104,15 @@ const ResolvedPlaces = props => {
               </tr>
             </thead>
             <tbody>
-              { grouped.map((r, idx) => <ResolvedPlaceRows key={idx} {...r} />) }
+              { this.state.data.map((r, idx) => <ResolvedPlaceRows key={idx} {...r} />) }
             </tbody>
           </table>
+
+          { this.state.computing && <div className="loading-mask"><div className="spinner" /></div> }
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 
 }
 
