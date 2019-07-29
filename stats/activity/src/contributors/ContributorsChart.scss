@@ -14,11 +14,12 @@
 
   td:first-child, td:last-child {
     text-align:right;
+    white-space:nowrap;
   }
 
   .meter {
     height:8px;
-    width:400px;
+    width:240px;
     margin-top:2px;
     overflow:visible;
   }

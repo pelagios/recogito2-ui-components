@@ -27,7 +27,7 @@ const ContributorsChart = props => {
   );
 
   return (
-    <div className="panel w8">
+    <div className="panel w7">
       <h2>Contributors</h2>
       <div className="inner contributors-chart">
         <table>

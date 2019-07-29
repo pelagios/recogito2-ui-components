@@ -59,7 +59,7 @@ export default class SummaryStats extends Component {
 
   render() {
     return (
-      <div className="panel w4">
+      <div className="panel w5">
         <h2>Summary</h2>
   
         <div className="inner summary-stats">

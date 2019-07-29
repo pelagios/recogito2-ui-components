@@ -36,7 +36,7 @@ const Timeline = props => {
       </h2>
 
       <div className="inner timeline">
-        <AreaChart data={data} width={920} height={180}>
+        <AreaChart data={data} width={700} height={180}>
           <CartesianGrid strokeDasharray="3 3"/>
           <XAxis dataKey="date"/>
           <YAxis/>
