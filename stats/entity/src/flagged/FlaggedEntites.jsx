@@ -60,7 +60,7 @@ export default class FlaggedEntites extends Component {
             <thead>
               <tr>
                 <th>Toponym</th>
-                <th># of Flagged Occurrences</th>
+                <th># Flagged</th>
               </tr>
             </thead>
 

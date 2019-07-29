@@ -2,4 +2,6 @@
 
 .resolved-places .inner {
   padding:0;
+  max-height:400px;
+  overflow-y:auto;
 }

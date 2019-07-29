@@ -9,7 +9,7 @@ import './App.scss';
 export default class App extends Component {
   
   state = {
-    document: this.props.config.document || 'oflmsfz9augu6l',
+    document: this.props.config.document || 'g2pabicvwilcij',
     annotations: []
   }
 

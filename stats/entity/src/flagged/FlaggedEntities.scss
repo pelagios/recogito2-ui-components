@@ -2,9 +2,15 @@
 
 .flagged-toponyms .inner {
   padding:0;
+  max-height:335px;
+  overflow-y:auto;
 
   .icon {
     font-size:14px;
+  }
+
+  th {
+    white-space:nowrap;
   }
 
   th:last-child, td:last-child {

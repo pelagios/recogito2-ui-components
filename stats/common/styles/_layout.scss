@@ -5,6 +5,7 @@
   max-width:100% !important;
   margin-right:1%;
   margin-bottom:15px;
+  vertical-align:top;
 }
 
 .panel.w2  { width:16.6%; }
@@ -21,8 +22,9 @@
   min-width:760px;
 }
 
-.inner {
+.content .inner {
   position:relative;
+  min-height:120px;
 }
 
 .inner .loading-mask {
