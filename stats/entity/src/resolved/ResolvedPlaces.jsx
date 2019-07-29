@@ -8,7 +8,9 @@ const ResolvedPlaceRows = props => {
     <React.Fragment>
       { props.occurrences.map(occurrence =>
         <tr key={ occurrence.toponym }>
-          <td>{ props.uri }</td>
+          <td>
+            <a href={props.uri} target="_blank">{ props.uri }</a>
+          </td>
           <td>{ occurrence.toponym }</td>
           <td>{ occurrence.count }</td>
         </tr> 
