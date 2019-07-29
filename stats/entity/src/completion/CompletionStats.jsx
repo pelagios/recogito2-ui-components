@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PieChart } from 'react-chartkick';
+import NumberFormat from 'react-number-format';
 
 import 'chart.js';
 import './CompletionStats.scss';
@@ -71,19 +72,28 @@ export default class CompletionStats extends Component {
             <table>
               <tbody>
                 <tr>
-                  <td>{total}</td>
+                  <td>
+                    <NumberFormat 
+                      thousandSeparator displayType="text" value={total} />
+                  </td>
                   <td>Places tagged</td>
                 </tr>
   
                 <tr>
-                  <td>{VERIFIED}</td>
+                  <td>
+                    <NumberFormat 
+                      thousandSeparator displayType="text" value={VERIFIED} />
+                  </td>
                   <td>
                     Verified ({total && (100 * VERIFIED / total).toFixed(2)}%)
                   </td>
                 </tr>
   
                 <tr>
-                  <td>{FLAGGED}</td>
+                  <td>
+                    <NumberFormat 
+                      thousandSeparator displayType="text" value={FLAGGED} />
+                  </td>
                   <td>
                     Flagged ({total && (100 * FLAGGED / total).toFixed(2)}%)
                   </td>
