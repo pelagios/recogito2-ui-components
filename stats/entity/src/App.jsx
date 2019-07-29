@@ -20,8 +20,8 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <FlaggedEntities
-          annotations={this.state.annotations} />
+        {/* <FlaggedEntities
+          annotations={this.state.annotations} /> */}
 
         <ResolvedPlaces
           annotations={this.state.annotations} />

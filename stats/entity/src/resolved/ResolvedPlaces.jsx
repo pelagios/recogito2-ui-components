@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './ResolvedPlaces.scss';
+
 const ResolvedPlaceRows = props => {
 
   return (
@@ -92,7 +94,7 @@ class ResolvedPlaces extends Component {
 
   render() {
     return (
-      <div className="panel w12">
+      <div className="panel w12 resolved-places">
         <h2>Resolved Places</h2>
         <div className="inner">
           <table>
