@@ -35,12 +35,14 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <SummaryStats
-          annotations={this.state.annotations} />
+        <div className="panel-row">
+          <SummaryStats
+            annotations={this.state.annotations} />
 
-        <ContributorsChart
-          editsPerUser={this.state.editsPerUser} 
-          onSelect={this.selectUser} />
+          <ContributorsChart
+            editsPerUser={this.state.editsPerUser} 
+            onSelect={this.selectUser} />
+        </div>
 
         <Timeline
           history={this.state.editHistory} 

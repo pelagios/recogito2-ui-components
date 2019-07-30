@@ -4,9 +4,16 @@
   padding:0;
   max-height:335px;
   overflow-y:auto;
+  overflow-x:hidden;
 
   .icon {
     font-size:14px;
+  }
+
+  table {
+    width:100%;
+    table-layout:fixed;
+    word-break: break-word;
   }
 
   th {
@@ -15,6 +22,10 @@
 
   th:last-child, td:last-child {
     text-align:right;
+  }
+
+  td {
+    width:50px;
   }
   
 }
